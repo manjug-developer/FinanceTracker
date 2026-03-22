@@ -16,29 +16,31 @@ function fetchRecords() {
     const filterYear = document.getElementById('filterYear').value;
 
     db.transaction(function(tx){
-        let query = "SELECT * FROM records";
-        let conditions = [];
+        let query = "SELECT * FROM records WHERE 1=1";
         let params = [];
 
         if(filterType){
-            conditions.push("type=?");
+            query += " AND type=?";
             params.push(filterType);
         }
+
         if(filterYear){
-            conditions.push("year=?");
+            query += " AND year=?";
             params.push(filterYear);
         }
-        if(conditions.length>0){
-            query += " WHERE " + conditions.join(" AND ");
-        }
+
         query += " ORDER BY recordNumber DESC";
 
         tx.executeSql(query, params, function(tx,res){
             records = [];
-            for(let i=0;i<res.rows.length;i++) records.push(res.rows.item(i));
+            for(let i=0;i<res.rows.length;i++){
+                records.push(res.rows.item(i));
+            }
             currentPage = 1;
             renderTable();
-        }, function(tx,error){ showModal("Error fetching records: "+error.message); });
+        }, function(tx,error){
+            showModal("Error fetching records: "+error.message);
+        });
     });
 }
 
@@ -70,8 +72,8 @@ function renderTable(){
                 <td>${r.type}</td>
                 <td>${r.category}</td>
                 <td>
-                    <button onclick="editRecord(${r.recordNumber})">Edit</button>
-                    <button onclick="deleteRecord(${r.recordNumber})">Delete</button>
+                    <button class="table-button" onclick="editRecord(${r.recordNumber})">Edit</button>
+                    <button class="table-button" onclick="deleteRecord(${r.recordNumber})">Delete</button>
                 </td>
             </tr>
         `;
@@ -111,5 +113,7 @@ function editRecord(id){
 document.addEventListener('deviceready', function(){
     populateFilterYears();
     fetchRecords();
+
     document.getElementById('filterType').addEventListener('change', fetchRecords);
+    document.getElementById('filterYear').addEventListener('change', fetchRecords);
 }, false);

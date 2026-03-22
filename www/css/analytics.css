@@ -1,0 +1,31 @@
+.filter-section {
+    background-color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    display: inline-block;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+}
+
+.filter-section label {
+    font-weight: 500;
+    color: #333;
+}
+
+.filter-section select {
+    padding: 6px 0px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.filter-section select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76,175,80,0.5);
+    outline: none;
+}

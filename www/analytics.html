@@ -2,23 +2,33 @@
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-    <title>My Cordova Charts</title>
-    <link rel="stylesheet" href="css/index.css">
+    <title>Analytics</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/analytics.css">
 </head>
 <body>
 
-    <div style="padding: 20px;">
-        <h2>Sales Analytics</h2>
-        
-        <canvas id="myBarChart" width="400" height="200"></canvas>
-        
-        <hr>
+<header class="app-header">
+    <h1>Analytics</h1>
+</header>
 
-        <h2>Category Distribution</h2>
-        <canvas id="myPieChart" width="400" height="200"></canvas>
+<div class="container">
+    <div class="filter-section" style="padding: 10px;">
+        <label>Select Year:</label>
+        <select id="yearFilter"></select>
     </div>
-    <script src="cordova.js"></script>
-    <script src="lib/chart.js"></script>
-    <script src="js/analytics.js"></script>
+
+    <canvas id="barChart"></canvas>
+    <hr>
+    <canvas id="spendPieChart"></canvas>
+    <hr>
+    <canvas id="earningPieChart"></canvas>
+</div>
+
+<script src="cordova.js"></script>
+<script src="lib/chart.js"></script>
+<script src="js/db.js"></script>
+<script src="js/analytics.js"></script>
+
 </body>
 </html>

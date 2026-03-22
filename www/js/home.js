@@ -36,3 +36,13 @@ function updateWidgets() {
 }
 
 document.addEventListener('deviceready', updateWidgets, false);
+
+document.addEventListener('deviceready', function () {
+    if (window.StatusBar) {
+        StatusBar.backgroundColorByHexString("#2c3e50");
+        StatusBar.styleLightContent();
+    }
+    if (window.NavigationBar) {
+        NavigationBar.backgroundColorByHexString("#2c3e50");
+    }
+});
