@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>All Records</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>All Records</h1>
+    </header>
+
+    <div class="container">
+        <div style="margin-bottom:15px;">
+            <label>Filter by Type:</label>
+            <select id="filterType">
+                <option value="">All</option>
+                <option value="Earning">Earning</option>
+                <option value="Spend">Spend</option>
+            </select>
+        </div>
+
+        <!-- Scrollable Table Wrapper -->
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Record #</th>
+                        <th>Year</th>
+                        <th>Month</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="recordsBody"></tbody>
+            </table>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+
+        <div style="text-align:center;">
+            <button onclick="window.location.href='index.html'">Back</button>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p id="modalText"></p>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/records.js"></script>
+</body>
+</html>
