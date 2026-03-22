@@ -1,0 +1,12 @@
+.table-wrapper { overflow-x:auto; width:100%; margin-bottom:15px; }
+.table-wrapper table {
+    width:100%; min-width:800px; border-collapse: collapse; background:#fff;
+    border-radius:10px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+table th, table td { padding:12px 15px; text-align:center; font-size:15px; }
+table th { background-color:#4CAF50; color:white; text-transform:uppercase; letter-spacing:0.5px; }
+table tr:nth-child(even) { background-color:#f9f9f9; }
+table tr:hover { background-color:#f1fdf1; }
+.pagination { text-align:center; margin:15px 0; }
+.pagination button { margin:3px; padding:8px 12px; border-radius:5px; border:1px solid #4CAF50; background:#fff; color:#4CAF50; cursor:pointer; transition: all 0.3s;}
+.pagination button:hover { background-color:#4CAF50; color:#fff;}

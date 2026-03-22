@@ -53,8 +53,10 @@ document.addEventListener('deviceready', function(){
 
     const form = document.getElementById('recordForm');
     const editId = localStorage.getItem('editRecordId');
-
+    const header = document.getElementById('formHeader');
+    
     if(editId){
+        header.innerText = "Edit Record"; // Update header dynamically
         db.transaction(function(tx){
             tx.executeSql("SELECT * FROM records WHERE recordNumber=?", [editId], function(tx,res){
                 if(res.rows.length>0){
