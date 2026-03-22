@@ -1,6 +1,6 @@
 let records = [];
 let currentPage = 1;
-const recordsPerPage = 10;
+const recordsPerPage = 5;
 
 function showModal(msg) {
     document.getElementById('modalText').innerText = msg;
@@ -13,13 +13,23 @@ function closeModal() {
 
 function fetchRecords() {
     const filterType = document.getElementById('filterType').value;
+    const filterYear = document.getElementById('filterYear').value;
 
     db.transaction(function(tx){
         let query = "SELECT * FROM records";
+        let conditions = [];
         let params = [];
+
         if(filterType){
-            query += " WHERE type=?";
+            conditions.push("type=?");
             params.push(filterType);
+        }
+        if(filterYear){
+            conditions.push("year=?");
+            params.push(filterYear);
+        }
+        if(conditions.length>0){
+            query += " WHERE " + conditions.join(" AND ");
         }
         query += " ORDER BY recordNumber DESC";
 
@@ -30,6 +40,17 @@ function fetchRecords() {
             renderTable();
         }, function(tx,error){ showModal("Error fetching records: "+error.message); });
     });
+}
+
+function populateFilterYears() {
+    const yearSelect = document.getElementById('filterYear');
+    const currentYear = new Date().getFullYear();
+    for(let i = currentYear-10; i <= currentYear+10; i++){
+        const option = document.createElement('option');
+        option.value = i;
+        option.text = i;
+        yearSelect.add(option);
+    }
 }
 
 function renderTable(){
@@ -88,6 +109,7 @@ function editRecord(id){
 }
 
 document.addEventListener('deviceready', function(){
+    populateFilterYears();
     fetchRecords();
     document.getElementById('filterType').addEventListener('change', fetchRecords);
 }, false);

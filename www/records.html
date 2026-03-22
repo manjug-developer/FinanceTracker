@@ -12,13 +12,20 @@
     </header>
 
     <div class="container">
-        <div style="margin-bottom:15px;">
-            <label>Filter by Type:</label>
-            <select id="filterType">
-                <option value="">All</option>
-                <option value="Earning">Earning</option>
-                <option value="Spend">Spend</option>
-            </select>
+        <div class="filter-section">
+            <div style="margin-bottom:15px;">
+                <label>Filter -  by Type:</label>
+                <select id="filterType">
+                    <option value="">All</option>
+                    <option value="Earning">Earning</option>
+                    <option value="Spend">Spend</option>
+                </select>
+                <label for="filterYear" style="margin-left:20px;"> by Year:</label>
+                <select id="filterYear">
+                    <option value="">All</option>
+                    <!-- Year options will be populated dynamically -->
+                </select>
+            </div>
         </div>
 
         <!-- Scrollable Table Wrapper -->

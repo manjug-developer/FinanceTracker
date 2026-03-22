@@ -10,3 +10,33 @@ table tr:hover { background-color:#f1fdf1; }
 .pagination { text-align:center; margin:15px 0; }
 .pagination button { margin:3px; padding:8px 12px; border-radius:5px; border:1px solid #4CAF50; background:#fff; color:#4CAF50; cursor:pointer; transition: all 0.3s;}
 .pagination button:hover { background-color:#4CAF50; color:#fff;}
+
+/* Filter section styling */
+.filter-section {
+    background-color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    display: inline-block;
+    font-size: 16px;
+}
+
+.filter-section label {
+    font-weight: 500;
+    color: #333;
+}
+
+.filter-section select {
+    padding: 6px 0px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.filter-section select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76,175,80,0.5);
+    outline: none;
+}
