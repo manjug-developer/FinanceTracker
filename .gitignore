@@ -1,0 +1,13 @@
+# Cordova
+platforms/
+plugins/
+node_modules/
+
+# Build files
+*.apk
+*.aab
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
